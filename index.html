@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Software Developer Portfolio — building elegant, performant web applications." />
+  <title>Alex Rivera · Software Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="selection:bg-indigo-100 selection:text-indigo-900">
+  <!-- Noise Texture Layer -->
+  <div class="fixed inset-0 pointer-events-none z-[100] opacity-[0.03]"
+    style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');">
+  </div>
+
+  <!-- Cabeçalho -->
+  <header
+    class="sticky top-0 z-50 flex justify-between items-center px-6 md:px-12 py-6 bg-[#F8FAFC]/80 backdrop-blur-md border-b border-[#1E293B] shadow-sm">
+    <!-- Botão de Menu Mobile -->
+    <button id="mobileMenuBtn" class="md:hidden text-[#1E293B] hover:text-[#4F46E5] transition-colors">
+      <i data-lucide="menu" size="28" stroke-width="2.5"></i>
+    </button>
+
+    <!-- Navegação Desktop -->
+    <nav class="hidden md:flex items-center gap-10">
+      <a href="#about"
+        class="text-xs font-bold uppercase tracking-[0.2em] hover:text-[#4F46E5] transition-colors relative group">
+        Sobre
+        <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#4F46E5] transition-all group-hover:w-full"></span>
+      </a>
+      <a href="#skills"
+        class="text-xs font-bold uppercase tracking-[0.2em] hover:text-[#4F46E5] transition-colors relative group">
+        Stack
+        <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#4F46E5] transition-all group-hover:w-full"></span>
+      </a>
+      <a href="#projects"
+        class="text-xs font-bold uppercase tracking-[0.2em] hover:text-[#4F46E5] transition-colors relative group">
+        Projetos
+        <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#4F46E5] transition-all group-hover:w-full"></span>
+      </a>
+      <a href="#contact"
+        class="text-xs font-bold uppercase tracking-[0.2em] hover:text-[#4F46E5] transition-colors relative group">
+        Contato
+        <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#4F46E5] transition-all group-hover:w-full"></span>
+      </a>
+    </nav>
+
+    <!-- Toggle Switch -->
+    <div id="themeToggle"
+      class="w-14 h-7 bg-slate-200 border border-slate-300 rounded-full flex items-center justify-start px-1 cursor-pointer transition-all hover:bg-slate-300 hover:border-slate-400 group/toggle">
+      <div id="themeToggleCircle"
+        class="w-5 h-5 bg-white rounded-full shadow-md transform transition-transform group-hover/toggle:scale-105">
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobileDrawer"
+    class="fixed inset-0 z-40 bg-white/95 backdrop-blur-md transform -translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center gap-8">
+    <a href="#about"
+      class="text-2xl font-bold uppercase tracking-widest text-[#1E293B] hover:text-[#4F46E5] drawer-link">Sobre</a>
+    <a href="#skills"
+      class="text-2xl font-bold uppercase tracking-widest text-[#1E293B] hover:text-[#4F46E5] drawer-link">Stack</a>
+    <a href="#projects"
+      class="text-2xl font-bold uppercase tracking-widest text-[#1E293B] hover:text-[#4F46E5] drawer-link">Projetos</a>
+    <a href="#contact"
+      class="text-2xl font-bold uppercase tracking-widest text-[#1E293B] hover:text-[#4F46E5] drawer-link">Contato</a>
+  </div>
+
+  <main>
+
+    <!-- Secção Principal (Hero) -->
+    <section id="hero" class="min-h-[90vh] flex items-center justify-center px-6 md:px-12 py-16 md:py-20 bg-[#F8FAFC]">
+      <div class="max-w-7xl w-full flex flex-col-reverse md:flex-row items-center justify-between gap-16 md:gap-24">
+
+        <!-- Conteúdo de Texto -->
+        <div class="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
+          <div class="w-full">
+            <!-- Bloco de Título -->
+            <div class="mb-10 md:mb-12">
+              <h1
+                class="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-[#1E293B] md:-ml-[3px] mb-4">
+                Ryan Haiala
+              </h1>
+
+              <p class="text-[#4F46E5] text-sm md:text-base lg:text-lg font-bold uppercase tracking-[0.15em]">
+                Desenvolvedor de Software Full Stack
+              </p>
+            </div>
+
+            <!-- Bloco de Descrição -->
+            <p class="text-slate-600 text-base md:text-lg leading-relaxed max-w-lg mb-12 md:mb-16">
+              Foco em tecnologias modernas como React, Node.js e TypeScript,
+              entregando soluções completas que unem performance técnica
+              e design de interface de alta fidelidade.
+            </p>
+          </div>
+
+          <!-- Bloco de Ação -->
+          <div class="flex flex-col sm:flex-row items-center gap-5 w-full justify-center md:justify-start">
+            <a href="#projects"
+              class="w-full sm:w-auto bg-[#4F46E5] text-white px-10 py-4 rounded-full text-sm font-bold hover:bg-[#4338CA] transition-all hover:translate-y-[-2px] shadow-lg shadow-indigo-500/20 text-center">
+              Ver Projetos
+            </a>
+            <a href="#contact"
+              class="w-full sm:w-auto border border-slate-400 text-[#1E293B] px-10 py-4 rounded-full text-sm font-bold hover:border-[#4F46E5] hover:text-[#4F46E5] hover:bg-indigo-50 transition-all text-center">
+              Entrar em contato
+            </a>
+          </div>
+        </div>
+
+        <!-- Imagem de Perfil -->
+        <div class="flex-1 flex justify-center md:justify-end">
+          <div
+            class="relative w-72 h-72 md:w-96 md:h-96 lg:w-[460px] lg:h-[460px] rounded-full border md:border-2 border-[#1E293B] overflow-hidden bg-slate-100 shadow-[0_20px_50px_rgba(30,41,59,0.12)] flex items-end justify-center transition-transform duration-700 hover:scale-[1.01]">
+            <img src="capa.jpg"
+              onerror="this.src='https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=800&auto=format&fit=crop'"
+              alt="Ryan Haiala" class="w-full h-full object-cover object-top" style="object-position: center 10%" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section__header">
+          <p class="section__label">01 — About</p>
+          <h2 class="section__title">Who I Am</h2>
+        </div>
+        <div class="about__grid">
+          <div class="about__bio">
+            <p>I'm a full-stack software engineer with <strong>5+ years of experience</strong> building production-grade
+              web applications. I specialize in JavaScript ecosystems — React on the front end, Node.js and Python on
+              the back end — and I take pride in writing code that's clean, tested, and maintainable.</p>
+            <p>I've worked across startups and mid-size companies, shipping products that handle thousands of daily
+              users. Beyond coding, I care deeply about developer experience, accessibility, and shipping work that
+              truly solves user problems.</p>
+            <p>When I'm not at my desk, you'll find me contributing to open-source projects or exploring the
+              intersection of design and engineering.</p>
+          </div>
+          <div class="about__skills-col">
+            <h3 class="about__skills-title">Core Skills</h3>
+            <div class="tags">
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Python</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">GraphQL</span>
+              <span class="tag">Docker</span>
+              <span class="tag">AWS</span>
+              <span class="tag">Git</span>
+              <span class="tag">CI/CD</span>
+              <span class="tag">Agile</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section__header">
+          <p class="section__label">02 — Work</p>
+          <h2 class="section__title">Featured Projects</h2>
+        </div>
+        <div class="projects__grid">
+          <article class="project-card">
+            <div class="project-card__header">
+              <div class="project-card__icon" style="background:linear-gradient(135deg,#6366f1,#818cf8)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M3 9h18M9 21V9" />
+                </svg>
+              </div>
+              <span class="project-card__tag">SaaS</span>
+            </div>
+            <h3 class="project-card__title">TaskFlow — Team Productivity App</h3>
+            <p class="project-card__desc">A real-time Kanban-style project management tool with live collaboration,
+              role-based permissions, and Slack integration.</p>
+            <div class="project-card__stack">
+              <span>React</span><span>Node.js</span><span>Socket.io</span><span>PostgreSQL</span></div>
+            <div class="project-card__actions">
+              <a href="#" class="btn btn--primary btn--sm">Live Demo</a>
+              <a href="#" class="btn btn--ghost btn--sm">GitHub</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card__header">
+              <div class="project-card__icon" style="background:linear-gradient(135deg,#0ea5e9,#38bdf8)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <path
+                    d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+              </div>
+              <span class="project-card__tag">API</span>
+            </div>
+            <h3 class="project-card__title">GeoInsight — Analytics Dashboard</h3>
+            <p class="project-card__desc">A data visualization platform for geospatial analytics, enabling clients to
+              visualize large datasets with interactive maps and custom reports.</p>
+            <div class="project-card__stack">
+              <span>Next.js</span><span>Python</span><span>FastAPI</span><span>Mapbox</span></div>
+            <div class="project-card__actions">
+              <a href="#" class="btn btn--primary btn--sm">Live Demo</a>
+              <a href="#" class="btn btn--ghost btn--sm">GitHub</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card__header">
+              <div class="project-card__icon" style="background:linear-gradient(135deg,#10b981,#34d399)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
+                  <path d="M12 12h.01" />
+                </svg>
+              </div>
+              <span class="project-card__tag">E-Commerce</span>
+            </div>
+            <h3 class="project-card__title">ShopSwift — Headless Commerce</h3>
+            <p class="project-card__desc">A headless e-commerce storefront with a custom cart engine, payment
+              processing, inventory tracking, and a merchant admin panel.</p>
+            <div class="project-card__stack">
+              <span>Next.js</span><span>TypeScript</span><span>Stripe</span><span>MongoDB</span></div>
+            <div class="project-card__actions">
+              <a href="#" class="btn btn--primary btn--sm">Live Demo</a>
+              <a href="#" class="btn btn--ghost btn--sm">GitHub</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card__header">
+              <div class="project-card__icon" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                  <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+              </div>
+              <span class="project-card__tag">DevOps</span>
+            </div>
+            <h3 class="project-card__title">DeployKit — CI/CD Automation CLI</h3>
+            <p class="project-card__desc">A command-line tool to scaffold and deploy full-stack apps to AWS with zero
+              downtime using Blue/Green deployment strategies.</p>
+            <div class="project-card__stack"><span>Node.js</span><span>AWS CDK</span><span>Docker</span><span>GitHub
+                Actions</span></div>
+            <div class="project-card__actions">
+              <a href="#" class="btn btn--primary btn--sm">Live Demo</a>
+              <a href="#" class="btn btn--ghost btn--sm">GitHub</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card__header">
+              <div class="project-card__icon" style="background:linear-gradient(135deg,#ec4899,#f472b6)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+              </div>
+              <span class="project-card__tag">AI / NLP</span>
+            </div>
+            <h3 class="project-card__title">ChatLens — AI Support Bot</h3>
+            <p class="project-card__desc">An embeddable AI-powered support chatbot trained on company documentation,
+              with conversation memory and handoff to human agents.</p>
+            <div class="project-card__stack">
+              <span>Python</span><span>FastAPI</span><span>OpenAI</span><span>React</span></div>
+            <div class="project-card__actions">
+              <a href="#" class="btn btn--primary btn--sm">Live Demo</a>
+              <a href="#" class="btn btn--ghost btn--sm">GitHub</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card__header">
+              <div class="project-card__icon" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                  <line x1="6" y1="1" x2="6" y2="4" />
+                  <line x1="10" y1="1" x2="10" y2="4" />
+                  <line x1="14" y1="1" x2="14" y2="4" />
+                </svg>
+              </div>
+              <span class="project-card__tag">Mobile</span>
+            </div>
+            <h3 class="project-card__title">FitTrack — Workout Logger App</h3>
+            <p class="project-card__desc">A cross-platform fitness tracking app with AI-generated workout plans,
+              progress charts, and offline sync for gym sessions.</p>
+            <div class="project-card__stack"><span>React
+                Native</span><span>Expo</span><span>Supabase</span><span>TanStack Query</span></div>
+            <div class="project-card__actions">
+              <a href="#" class="btn btn--primary btn--sm">Live Demo</a>
+              <a href="#" class="btn btn--ghost btn--sm">GitHub</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <div class="section__header">
+          <p class="section__label">03 — Stack</p>
+          <h2 class="section__title">Tech Expertise</h2>
+        </div>
+        <div class="skills__grid">
+          <div class="skill-group">
+            <h3 class="skill-group__title"><span class="skill-group__dot" style="background:#6366f1"></span>Frontend
+            </h3>
+            <ul class="skill-list">
+              <li class="skill-item"><span class="skill-item__name">React / Next.js</span>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="width:95%"></div>
+                </div>
+              </li>
+              <li class="skill-item"><span class="skill-item__name">TypeScript</span>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="width:90%"></div>
+                </div>
+              </li>
+              <li class="skill-item"><span class="skill-item__name">CSS / Tailwind</span>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="width:88%"></div>
+                </div>
+              </li>
+              <li class="skill-item"><span class="skill-item__name">React Native</span>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="width:75%"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group__title"><span class="skill-group__dot" style="background:#0ea5e9"></span>Backend</h3>
+            <ul class="skill-list">
+              <li class="skill-item"><span class="skill-item__name">Node.js / Express</span>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="width:92%"></div>
+                </div>
+              </li>
+              <li class="skill-item"><span class="skill-item__name">Python / FastAPI</span>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="width:85%"></div>
+                </div>
+              </li>
+              <li class="skill-item"><span class="skill-item__name">PostgreSQL / MongoDB</span>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="width:88%"></div>
+                </div>
+              </li>
+              <li class="skill-item"><span class="skill-item__name">GraphQL</span>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="width:78%"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group__title"><span class="skill-group__dot" style="background:#10b981"></span>DevOps</h3>
+            <ul class="skill-list">
+              <li class="skill-item"><span class="skill-item__name">Docker / Kubernetes</span>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="width:82%"></div>
+                </div>
+              </li>
+              <li class="skill-item"><span class="skill-item__name">AWS / GCP</span>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="width:80%"></div>
+                </div>
+              </li>
+              <li class="skill-item"><span class="skill-item__name">GitHub Actions</span>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="width:90%"></div>
+                </div>
+              </li>
+              <li class="skill-item"><span class="skill-item__name">Terraform</span>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="width:65%"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group__title"><span class="skill-group__dot" style="background:#f59e0b"></span>Tools</h3>
+            <ul class="skill-list">
+              <li class="skill-item"><span class="skill-item__name">Git / GitHub</span>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="width:97%"></div>
+                </div>
+              </li>
+              <li class="skill-item"><span class="skill-item__name">Figma</span>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="width:70%"></div>
+                </div>
+              </li>
+              <li class="skill-item"><span class="skill-item__name">Jest / Vitest</span>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="width:85%"></div>
+                </div>
+              </li>
+              <li class="skill-item"><span class="skill-item__name">Postman / Insomnia</span>
+                <div class="skill-item__bar">
+                  <div class="skill-item__fill" style="width:88%"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section__header">
+          <p class="section__label">04 — Contact</p>
+          <h2 class="section__title">Let's Work Together</h2>
+          <p class="section__subtitle">Have a project in mind or looking to hire? I'm currently open to new
+            opportunities.</p>
+        </div>
+        <div class="contact__grid">
+          <form class="contact__form" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" autocomplete="name" required />
+              <span class="form-error" id="nameError">Please enter your name.</span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" autocomplete="email"
+                required />
+              <span class="form-error" id="emailError">Please enter a valid email.</span>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."
+                required></textarea>
+              <span class="form-error" id="messageError">Please enter your message.</span>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+              Send Message
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+            </button>
+            <div class="form-success" id="formSuccess">
+              ✅ Message sent! I'll get back to you within 24 hours.
+            </div>
+          </form>
+          <div class="contact__info">
+            <div class="contact__detail">
+              <p class="contact__detail-label">Email</p>
+              <a href="mailto:alex@example.com" class="contact__detail-value">alex@example.com</a>
+            </div>
+            <div class="contact__detail">
+              <p class="contact__detail-label">Location</p>
+              <p class="contact__detail-value">San Francisco, CA — Remote OK</p>
+            </div>
+            <div class="contact__detail">
+              <p class="contact__detail-label">Availability</p>
+              <p class="contact__detail-value"><span class="pulse-dot"></span> Open to opportunities</p>
+            </div>
+            <div class="contact__socials">
+              <a href="#" class="social-link" aria-label="GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+                GitHub
+              </a>
+              <a href="#" class="social-link" aria-label="LinkedIn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+                LinkedIn
+              </a>
+              <a href="mailto:alex@example.com" class="social-link" aria-label="Email">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">© 2026 Alex Rivera. Designed &amp; built with care.</p>
+      <a href="#hero" class="footer__top" aria-label="Back to top">↑ Top</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
