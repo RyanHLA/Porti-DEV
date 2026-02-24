@@ -45,6 +45,7 @@ function addRevealAttrs() {
     '.about__bio',
     '.about__skills-col',
     '.project-card',
+    '.skill-card',
     '.skill-group',
     '.contact__form',
     '.contact__info',
