@@ -5,8 +5,8 @@
   --accent: #6366f1;
   --accent-light: #818cf8;
   --accent-muted: rgba(99, 102, 241, .10);
-  --bg: #ffffff;
-  --bg-alt: #f8f9fb;
+  --bg: #E2E2E2;
+  --bg-alt: #D9D9D9;
   --surface: #ffffff;
   --border: #e5e7eb;
   --text-primary: #0f172a;
@@ -121,12 +121,13 @@ button {
 /* ═════════════════════════════════════════════
    BUTTONS
    ═════════════════════════════════════════════ */
+/* Atualize a classe .btn global */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 13px 26px;
-  border-radius: 10px;
+  border-radius: 2.5px; /* Arredondamento solicitado */
   font-weight: 600;
   font-size: 15px;
   transition: all var(--transition);
@@ -160,7 +161,7 @@ button {
 .btn--sm {
   padding: 8px 18px;
   font-size: 14px;
-  border-radius: 8px;
+  border-radius: 2.5px;
 }
 
 .btn--full {
@@ -178,7 +179,7 @@ button {
   right: 0;
   z-index: 100;
   height: var(--nav-h);
-  background: rgba(255, 255, 255, .85);
+  background: transparent; /* Mude de rgba(255, 255, 255, .85) para transparent */
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid transparent;
@@ -1087,4 +1088,194 @@ a.contact__detail-value:hover {
 [data-reveal].revealed {
   opacity: 1;
   transform: translateY(0);
+}
+
+#hero {
+  display: flex;
+  align-items: stretch; /* Garante que as colunas tenham a mesma altura */
+  padding: 0; /* Removemos o padding para a imagem encostar nas bordas */
+}
+
+/* No seu styles.css, procure a regra do #hero img e adicione/ajuste: */
+#hero img {
+  border-radius: 0;
+  /* Se a foto for de uma pessoa, 'center' ou '70% 0' costuma funcionar melhor 
+     para formatos verticais estreitos */
+  object-position: center; 
+  class="absolute inset-0 w-full h-full object-cover"
+}
+
+@media (max-width: 768px) {
+  #hero {
+    flex-direction: column;
+  }
+  #hero .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Estilo para o Título Principal */
+#hero h1 {
+  font-family: 'Inter', sans-serif;
+  /* Reduzimos levemente o tamanho máximo de 90px para 82px */
+  font-size: clamp(44px, 8vw, 82px); 
+  line-height: 1;
+  /* Ajustamos o espaçamento para -0.04em para um ar mais elegante e menos "espremido" */
+  letter-spacing: -0.04em; 
+  font-weight: 800;
+  color: #000000;
+}
+
+#hero p.subtitle-refined {
+  /* Mudamos para um cinza escuro (Slate 700) para diminuir o peso visual */
+  color: #334155; 
+  /* Reduzimos o peso da fonte de bold para semibold */
+  font-weight: 600; 
+  letter-spacing: -0.01em;
+  margin-top: 1rem;
+}
+
+.hero__body-text {
+  /* Aumentamos o espaçamento entre linhas para 1.8 para um visual mais limpo */
+  line-height: 1.8; 
+  color: #1e293b;
+}
+
+#hero p.tracking-\[0\.5em\] {
+  word-spacing: 0.2em; /* Espaço extra entre as palavras também */
+}
+
+/* Ajuste para o subtítulo ficar com as letras bem próximas e pretas */
+#hero p.text-black {
+  letter-spacing: -0.02em; /* Valor negativo para aproximar as letras */
+  color: #000000; /* Garante o preto absoluto */
+  opacity: 1; /* Garante que não haja transparência */
+}
+
+/* Estilo para o subtítulo elegante */
+.font-serif {
+  font-family: 'Playfair Display', serif; /* Ou 'Georgia', serif se não quiser importar */
+}
+
+/* Efeito de destaque no texto (o bloco preto) */
+.text-highlight {
+  background-color: #000;
+  color: #fff;
+  padding: 0 6px;
+  display: inline-block;
+}
+
+.projects-grid-light {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px; /* A espessura da linha divisória */
+  background-color: #cbd5e1; /* Cor da linha divisória (um cinza elegante) */
+  border: 1px solid #cbd5e1; /* Borda externa do grid inteiro */
+}
+
+.project-card-light {
+  background-color: var(--bg); /* Usa o mesmo cinza claro do site */
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.project-card-light:hover {
+  background-color: #f8fafc; /* Fica sutilmente mais branco ao passar o mouse */
+}
+
+/* O container da imagem */
+.project-img-wrapper-light {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: #f1f5f9;
+}
+
+/* A imagem com efeito de zoom no hover */
+.project-img-wrapper-light img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card-light:hover .project-img-wrapper-light img {
+  transform: scale(1.04); /* Zoom suave na foto */
+}
+
+/* Informações (Título e Ícone) */
+.project-info-light {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: auto;
+}
+
+.project-title-light {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a; /* Preto/Slate forte */
+  margin-bottom: 4px;
+}
+
+.project-category-light {
+  font-size: 12px;
+  color: #64748b; /* Cinza médio */
+  font-weight: 500;
+}
+
+/* O botão circular de seta */
+.project-icon-light {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid #cbd5e1; /* Borda visível */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+/* Efeito de preenchimento do botão no hover */
+.project-card-light:hover .project-icon-light {
+  background-color: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .projects-grid-light {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .projects-grid-light {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Reduzir o espaçamento do topo especificamente na seção de projetos */
+#projects {
+  padding-top: 60px; /* Reduzido de 100px para aproximar o conteúdo do topo */
+}
+
+/* Diminuir o tamanho do título "Alguns dos meus trabalhos" */
+#projects .section__title {
+  font-size: clamp(24px, 3.5vw, 32px); /* Tamanho menor e mais elegante */
+  letter-spacing: -0.02em;
+  margin-bottom: 0; /* Remove margens extras se houver */
+}
+
+/* Opcional: aproximar o título do grid de projetos */
+#projects .section__header {
+  margin-bottom: 40px; /* Reduzido de 56px para deixar o layout mais compacto */
 }
