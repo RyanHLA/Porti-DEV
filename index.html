@@ -12,23 +12,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 </head>
 
 <body class="selection:bg-indigo-100 selection:text-indigo-900">
-  <!-- Noise Texture Layer -->
   <div class="fixed inset-0 pointer-events-none z-[100] opacity-[0.03]"
     style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');">
   </div>
 
-  <!-- Cabeçalho -->
-  <header
-    class="sticky top-0 z-50 flex justify-between items-center px-6 md:px-12 py-6 bg-[#F8FAFC]/80 backdrop-blur-md border-b border-[#1E293B] shadow-sm">
-    <!-- Botão de Menu Mobile -->
+  <header class="sticky top-0 z-50 flex justify-between items-center px-6 md:px-12 py-6 bg-[var(--bg)]/80 backdrop-blur-md border-b border-[#1E293B] shadow-sm">
     <button id="mobileMenuBtn" class="md:hidden text-[#1E293B] hover:text-[#4F46E5] transition-colors">
       <i data-lucide="menu" size="28" stroke-width="2.5"></i>
     </button>
 
-    <!-- Navegação Desktop -->
     <nav class="hidden md:flex items-center gap-10">
       <a href="#about"
         class="text-xs font-bold uppercase tracking-[0.2em] hover:text-[#4F46E5] transition-colors relative group">
@@ -52,7 +48,6 @@
       </a>
     </nav>
 
-    <!-- Toggle Switch -->
     <div id="themeToggle"
       class="w-14 h-7 bg-slate-200 border border-slate-300 rounded-full flex items-center justify-start px-1 cursor-pointer transition-all hover:bg-slate-300 hover:border-slate-400 group/toggle">
       <div id="themeToggleCircle"
@@ -61,7 +56,6 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
   <div id="mobileDrawer"
     class="fixed inset-0 z-40 bg-white/95 backdrop-blur-md transform -translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center gap-8">
     <a href="#about"
@@ -76,59 +70,152 @@
 
   <main>
 
-    <!-- Secção Principal (Hero) -->
-    <section id="hero" class="min-h-[90vh] flex items-center justify-center px-6 md:px-12 py-16 md:py-20 bg-[#F8FAFC]">
-      <div class="max-w-7xl w-full flex flex-col-reverse md:flex-row items-center justify-between gap-16 md:gap-24">
+    <section id="hero" class="min-h-[90vh] flex items-stretch bg-[var(--bg)] overflow-hidden border-b border-[#1E293B]">
+      <div class="w-full grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr]">
 
-        <!-- Conteúdo de Texto -->
-        <div class="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-          <div class="w-full">
-            <!-- Bloco de Título -->
-            <div class="mb-10 md:mb-12">
-              <h1
-                class="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-[#1E293B] md:-ml-[3px] mb-4">
+        <div class="flex flex-col justify-center px-6 md:px-12 lg:px-20 py-16 md:py-24">
+          <div class="max-w-xl">
+            <div class="mb-8">
+              <h1 class="font-bold uppercase tracking-tighter">
                 Ryan Haiala
               </h1>
-
-              <p class="text-[#4F46E5] text-sm md:text-base lg:text-lg font-bold uppercase tracking-[0.15em]">
-                Desenvolvedor de Software Full Stack
+              <p class="text-sm md:text-base uppercase subtitle-refined">
+                Desenvolvedor de Software | Soluções Exclusivas para Fotógrafos
               </p>
             </div>
 
-            <!-- Bloco de Descrição -->
-            <p class="text-slate-600 text-base md:text-lg leading-relaxed max-w-lg mb-12 md:mb-16">
-              Crio sites e Apps modernos e rápidos que ajudam as empresas a crescer, disponíveis para projetos freelance
-              em todo o mundo.
-            </p>
-          </div>
+            <div class="text-lg md:text-xl hero__body-text">
+              <p>
+                A fotografia é sua arte, a tecnologia é a minha.
+                Desenvolvo portfólios exclusivos e sites de alta performance, projetados estrategicamente para valorizar seu trabalho e atrair mais clientes para o seu negócio.
+              </p>
+            </div>
 
-          <!-- Bloco de Ação -->
-          <div class="flex flex-col sm:flex-row items-center gap-5 w-full justify-center md:justify-start">
-            <a href="#projects"
-              class="w-full sm:w-auto bg-[#4F46E5] text-white px-10 py-4 rounded-full text-sm font-bold hover:bg-[#4338CA] transition-all hover:translate-y-[-2px] shadow-lg shadow-indigo-500/20 text-center">
-              Ver Projetos
-            </a>
-            <a href="#contact"
-              class="w-full sm:w-auto border border-slate-400 text-[#1E293B] px-10 py-4 rounded-full text-sm font-bold hover:border-[#4F46E5] hover:text-[#4F46E5] hover:bg-indigo-50 transition-all text-center">
-              Entrar em contato
-            </a>
+            <div class="mt-12 flex flex-col sm:flex-row items-center gap-5">
+              <a href="#projects"
+                class="w-full sm:w-auto bg-[#4F46E5] text-white px-10 py-4 rounded-[2.5px] text-sm font-bold hover:bg-[#4338CA] transition-all hover:translate-y-[-2px] shadow-lg shadow-indigo-500/20 text-center">
+                Ver Projetos
+              </a>
+              <a href="#contact"
+                class="w-full sm:w-auto border border-slate-400 text-[#1E293B] px-10 py-4 rounded-[2.5px] text-sm font-bold hover:border-[#4F46E5] hover:text-[#4F46E5] hover:bg-indigo-50 transition-all text-center">
+                Entrar em contato
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- Imagem de Perfil -->
-        <div class="flex-1 flex justify-center md:justify-end">
-          <div
-            class="relative w-72 h-72 md:w-96 md:h-96 lg:w-[460px] lg:h-[460px] rounded-full border md:border-2 border-[#1E293B] overflow-hidden bg-slate-100 shadow-[0_20px_50px_rgba(30,41,59,0.12)] flex items-end justify-center transition-transform duration-700 hover:scale-[1.01]">
-            <img src="capa.jpg"
-              onerror="this.src='https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=800&auto=format&fit=crop'"
-              alt="Ryan Haiala" class="w-full h-full object-cover object-top" style="object-position: center 10%" />
-          </div>
+        <div class="relative h-[400px] md:h-auto w-full bg-slate-200">
+          <img src="capa.jpg"
+            onerror="this.src='https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=1200&auto=format&fit=crop'"
+            alt="Ryan Haiala" 
+            class="absolute inset-0 w-full h-full object-cover" />
         </div>
 
       </div>
     </section>
 
-    <!-- SKILLS -->
+    <section class="section bg-[var(--bg)]" id="projects">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title text-black">Alguns dos meus trabalhos</h2>
+        </div>
+
+        <div class="projects-grid-light" data-reveal>
+          
+          <a href="#" class="project-card-light group">
+            <div class="project-img-wrapper-light">
+              <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop" alt="Spice Garden Restaurant" />
+            </div>
+            <div class="project-info-light">
+              <div>
+                <h3 class="project-title-light">Spice Garden Restaurant</h3>
+                <p class="project-category-light">Brand Identity</p>
+              </div>
+              <div class="project-icon-light">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="project-card-light group">
+            <div class="project-img-wrapper-light">
+              <img src="https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?q=80&w=800&auto=format&fit=crop" alt="TH Fashion House" />
+            </div>
+            <div class="project-info-light">
+              <div>
+                <h3 class="project-title-light">TH Fashion House</h3>
+                <p class="project-category-light">Social Media</p>
+              </div>
+              <div class="project-icon-light">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="project-card-light group">
+            <div class="project-img-wrapper-light">
+              <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?q=80&w=800&auto=format&fit=crop" alt="SR Foods" />
+            </div>
+            <div class="project-info-light">
+              <div>
+                <h3 class="project-title-light">SR Foods</h3>
+                <p class="project-category-light">Packaging</p>
+              </div>
+              <div class="project-icon-light">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="project-card-light group">
+            <div class="project-img-wrapper-light">
+              <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?q=80&w=800&auto=format&fit=crop" alt="Nogor Cafe" />
+            </div>
+            <div class="project-info-light">
+              <div>
+                <h3 class="project-title-light">Nogor Cafe</h3>
+                <p class="project-category-light">Logo Design</p>
+              </div>
+              <div class="project-icon-light">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="project-card-light group">
+            <div class="project-img-wrapper-light">
+              <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop" alt="DhakaFin Group" />
+            </div>
+            <div class="project-info-light">
+              <div>
+                <h3 class="project-title-light">DhakaFin Group</h3>
+                <p class="project-category-light">Print & Stationery</p>
+              </div>
+              <div class="project-icon-light">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="project-card-light group">
+            <div class="project-img-wrapper-light">
+              <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?q=80&w=800&auto=format&fit=crop" alt="Verdant Skincare" />
+            </div>
+            <div class="project-info-light">
+              <div>
+                <h3 class="project-title-light">Verdant Skincare</h3>
+                <p class="project-category-light">Brand Identity</p>
+              </div>
+              <div class="project-icon-light">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
     <section id="skills" class="relative overflow-hidden bg-white py-20 font-sans">
       <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
         style="background-image: linear-gradient(#000 1.5px, transparent 1.5px), linear-gradient(90deg, #000 1.5px, transparent 1.5px); background-size: 40px 40px;">
@@ -208,7 +295,6 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section class="section about" id="about">
       <div class="container">
         <div class="section__header">
@@ -247,154 +333,6 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section class="section projects" id="projects">
-      <div class="container">
-        <div class="section__header">
-          <p class="section__label">02 — Work</p>
-          <h2 class="section__title">Featured Projects</h2>
-        </div>
-        <div class="projects__grid">
-          <article class="project-card">
-            <div class="project-card__header">
-              <div class="project-card__icon" style="background:linear-gradient(135deg,#6366f1,#818cf8)">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <path d="M3 9h18M9 21V9" />
-                </svg>
-              </div>
-              <span class="project-card__tag">SaaS</span>
-            </div>
-            <h3 class="project-card__title">TaskFlow — Team Productivity App</h3>
-            <p class="project-card__desc">A real-time Kanban-style project management tool with live collaboration,
-              role-based permissions, and Slack integration.</p>
-            <div class="project-card__stack">
-              <span>React</span><span>Node.js</span><span>Socket.io</span><span>PostgreSQL</span>
-            </div>
-            <div class="project-card__actions">
-              <a href="#" class="btn btn--primary btn--sm">Live Demo</a>
-              <a href="#" class="btn btn--ghost btn--sm">GitHub</a>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-card__header">
-              <div class="project-card__icon" style="background:linear-gradient(135deg,#0ea5e9,#38bdf8)">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <path
-                    d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                </svg>
-              </div>
-              <span class="project-card__tag">API</span>
-            </div>
-            <h3 class="project-card__title">GeoInsight — Analytics Dashboard</h3>
-            <p class="project-card__desc">A data visualization platform for geospatial analytics, enabling clients to
-              visualize large datasets with interactive maps and custom reports.</p>
-            <div class="project-card__stack">
-              <span>Next.js</span><span>Python</span><span>FastAPI</span><span>Mapbox</span>
-            </div>
-            <div class="project-card__actions">
-              <a href="#" class="btn btn--primary btn--sm">Live Demo</a>
-              <a href="#" class="btn btn--ghost btn--sm">GitHub</a>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-card__header">
-              <div class="project-card__icon" style="background:linear-gradient(135deg,#10b981,#34d399)">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
-                  <path d="M12 12h.01" />
-                </svg>
-              </div>
-              <span class="project-card__tag">E-Commerce</span>
-            </div>
-            <h3 class="project-card__title">ShopSwift — Headless Commerce</h3>
-            <p class="project-card__desc">A headless e-commerce storefront with a custom cart engine, payment
-              processing, inventory tracking, and a merchant admin panel.</p>
-            <div class="project-card__stack">
-              <span>Next.js</span><span>TypeScript</span><span>Stripe</span><span>MongoDB</span>
-            </div>
-            <div class="project-card__actions">
-              <a href="#" class="btn btn--primary btn--sm">Live Demo</a>
-              <a href="#" class="btn btn--ghost btn--sm">GitHub</a>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-card__header">
-              <div class="project-card__icon" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                  <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg>
-              </div>
-              <span class="project-card__tag">DevOps</span>
-            </div>
-            <h3 class="project-card__title">DeployKit — CI/CD Automation CLI</h3>
-            <p class="project-card__desc">A command-line tool to scaffold and deploy full-stack apps to AWS with zero
-              downtime using Blue/Green deployment strategies.</p>
-            <div class="project-card__stack"><span>Node.js</span><span>AWS CDK</span><span>Docker</span><span>GitHub
-                Actions</span></div>
-            <div class="project-card__actions">
-              <a href="#" class="btn btn--primary btn--sm">Live Demo</a>
-              <a href="#" class="btn btn--ghost btn--sm">GitHub</a>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-card__header">
-              <div class="project-card__icon" style="background:linear-gradient(135deg,#ec4899,#f472b6)">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                </svg>
-              </div>
-              <span class="project-card__tag">AI / NLP</span>
-            </div>
-            <h3 class="project-card__title">ChatLens — AI Support Bot</h3>
-            <p class="project-card__desc">An embeddable AI-powered support chatbot trained on company documentation,
-              with conversation memory and handoff to human agents.</p>
-            <div class="project-card__stack">
-              <span>Python</span><span>FastAPI</span><span>OpenAI</span><span>React</span>
-            </div>
-            <div class="project-card__actions">
-              <a href="#" class="btn btn--primary btn--sm">Live Demo</a>
-              <a href="#" class="btn btn--ghost btn--sm">GitHub</a>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-card__header">
-              <div class="project-card__icon" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa)">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
-                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
-                  <line x1="6" y1="1" x2="6" y2="4" />
-                  <line x1="10" y1="1" x2="10" y2="4" />
-                  <line x1="14" y1="1" x2="14" y2="4" />
-                </svg>
-              </div>
-              <span class="project-card__tag">Mobile</span>
-            </div>
-            <h3 class="project-card__title">FitTrack — Workout Logger App</h3>
-            <p class="project-card__desc">A cross-platform fitness tracking app with AI-generated workout plans,
-              progress charts, and offline sync for gym sessions.</p>
-            <div class="project-card__stack"><span>React
-                Native</span><span>Expo</span><span>Supabase</span><span>TanStack Query</span></div>
-            <div class="project-card__actions">
-              <a href="#" class="btn btn--primary btn--sm">Live Demo</a>
-              <a href="#" class="btn btn--ghost btn--sm">GitHub</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- CONTACT -->
     <section class="section contact" id="contact">
       <div class="container">
         <div class="section__header">
